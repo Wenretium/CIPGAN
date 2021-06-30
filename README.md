@@ -97,6 +97,8 @@ The test results will be saved to a html file here: `./testresults/CIP_dataset1/
 ### Demo
 We provide a test demo with a simple GUI. This part is located in  `./demo_files` and we provide 4 pretrained models for ablation study.
 
+Run `./gui.py` and interact with our demo.
+
 ![1](README/1.png)
 
 You can choose your own test image and get the result immediately. The results are saved in  `./demo_files/results`.
