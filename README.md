@@ -136,4 +136,4 @@ We choose the famous unsupervised style transfer model CycleGAN as our baseline.
 
 #### Supplemental material
 
-![supplemental material](README/supplemental material.png)
+![supplemental material](README/supplemental_material.png)
