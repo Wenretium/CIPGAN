@@ -153,7 +153,7 @@ if __name__ == '__main__':
     s2 = Scale(window, from_=10, to=24, resolution=1, orient="horizontal")
     s2.place(y=500, x=150)
     # 拖动条：map阈值
-    s1 = Scale(window, from_=0, to=1, resolution=0.05, orient="horizontal")
+    s1 = Scale(window, from_=0, to=1, resolution=0.02, orient="horizontal")
     s1.place(y=350, x=50)
 
     # main
