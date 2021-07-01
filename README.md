@@ -12,7 +12,7 @@
 
 国画乃我国传统文化艺术的瑰宝，蕴含着中国人的文化与智慧。随着我国文化影响力的提高，国画艺术更是备受关注。
 
-本项目为基于CycleGAN的中国画风格迁移模型。不借与笔墨纸砚，不拘于一方画布，也不需有专业的绘画功底，借计算机视觉之手，即可将照片转换为国画风格，创作出自己的作品。
+本项目为基于CycleGAN的中国画风格迁移模型。不借与笔墨纸砚，不拘于一方画布，也不需有专业的绘画功底，借计算机视觉之手，即可将照片转换为水墨画风格，创作出自己的作品。
 
 
 
@@ -88,7 +88,7 @@ python test.py --dataroot ./datasets/CIP_dataset1_process --name CIP_dataset1
 ```
 python test.py --dataroot ./datasets/CIP_dataset1_process --name CIP_dataset1 --self_attention --self_attention_thresh 0.8
 ```
-If you don't want to resize the images when testing, add `` to the end.
+If you don't want to resize the images when testing, add `--preprocess none` to the end.
 
 The test results will be saved to a html file here: `./testresults/CIP_dataset1/latest_test/index.html`.
 
@@ -99,13 +99,22 @@ We provide a test demo with a simple GUI. This part is located in  `./demo_files
 
 Run `./gui.py` and interact with our demo.
 
-![1](README/1.png)
+![1](README/demo.png)
 
 You can choose your own test image and get the result immediately. The results are saved in  `./demo_files/results`.
 
 
 
 ### Architecture
+
+#### Overview
+
+![model](README/model.png)
+
+<img src="README/model2.png" alt="model2" style="zoom: 33%;" />
+
+
+#### Contributes
 
 We choose the famous unsupervised style transfer model CycleGAN as our baseline. To attain  a better visual performance,  we propose two improvements:
 
@@ -117,3 +126,14 @@ We choose the famous unsupervised style transfer model CycleGAN as our baseline.
 
   In addition, we provide a control factor `self_attention_thresh` . It controls the values of the self-attention map. When the value of it decreases, that means we pay less attention to the other light-color details of the image.  
 
+
+
+### Our project
+
+#### Poster
+
+![poster](README/poster.png)
+
+#### Supplemental material
+
+![supplemental material](README/supplemental material.png)
