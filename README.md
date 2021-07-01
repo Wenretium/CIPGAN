@@ -111,7 +111,7 @@ You can choose your own test image and get the result immediately. The results a
 
 ![model](README/model.png)
 
-<img src="README/model2.png" alt="model2" style="zoom: 33%;" />
+<img src="README/model2.png">
 
 
 #### Contributes
