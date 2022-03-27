@@ -61,6 +61,8 @@ CIP_dataset1_process
 --testA
 --testB
 ```
+I also provide my own training dataset, including `CIP_dataset1_process` and `CIP_dataset2`. They’re collected by me from the Internet (sorry to forget the specific source). You can download it from [here](https://pan.baidu.com/s/1sWQwcun-lq0YEc-0WQRXAg) (203n). (Updated on March 27th, 2022)
+
 #### 2. Train a model
 
 + original
