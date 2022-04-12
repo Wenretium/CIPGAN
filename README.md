@@ -61,7 +61,7 @@ CIP_dataset1_process
 --testA
 --testB
 ```
-I also provide my own training dataset, including `CIP_dataset1_process` and `CIP_dataset2`. They’re collected by me from the Internet (sorry to forget the specific source). You can download it from [here](https://pan.baidu.com/s/1sWQwcun-lq0YEc-0WQRXAg) (203n). (Updated on March 27th, 2022)
+I also provide my own training dataset, including `CIP_dataset1_process` and `CIP_dataset2`. They’re collected by me from the Internet (sorry to forget the specific source). You can download it from [here](https://pan.baidu.com/s/1sWQwcun-lq0YEc-0WQRXAg) (203n).
 
 #### 2. Train a model
 
@@ -139,3 +139,11 @@ We choose the famous unsupervised style transfer model CycleGAN as our baseline.
 #### Supplemental material
 
 ![supplemental material](README/supplemental_material.png)
+
+
+
+### Updating
+
+📌 March 27th, 2022: Update the source link of my dataset.
+
+📌 April 12th, 2022: Update the formula figure and correct some typos.
