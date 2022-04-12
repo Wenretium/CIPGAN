@@ -146,4 +146,4 @@ We choose the famous unsupervised style transfer model CycleGAN as our baseline.
 
 📌 March 27th, 2022: Update the source link of my dataset.
 
-📌 April 12th, 2022: Update the formula figure and correct some typos.
+📌 April 12th, 2022: Update the model & formula figures and correct some typos.
