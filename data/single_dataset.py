@@ -2,6 +2,7 @@ from data.base_dataset import BaseDataset, get_transform
 from data.image_folder import make_dataset
 from PIL import Image
 from util.getMap import *
+import torchvision.transforms as transforms
 
 class SingleDataset(BaseDataset):
     """This dataset class can load a set of images specified by the path --dataroot /path/to/data.
@@ -36,7 +37,9 @@ class SingleDataset(BaseDataset):
         A_path = self.A_paths[index]
         A_img = Image.open(A_path).convert('RGB')
         A = self.transform(A_img)
-        A_map = self.transform_map(getMap(A_img, self.opt.attention_thresh))
+        trans_size = transforms.Resize([A.shape[1],A.shape[2]], Image.BICUBIC) # 原图测试时如果有resize，尺寸会变为4的倍数，此时map也要相应改变
+        A_img = trans_size(A_img)
+        A_map = self.transform_map(getMap(A_img, self.opt.self_attention_thresh))
         return {'A': A, 'A_paths': A_path, 'A_map':A_map}
 
     def __len__(self):

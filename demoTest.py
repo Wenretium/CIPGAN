@@ -23,7 +23,7 @@ def demoTest(model_name, input_path, input_name, attention_thresh):
 
     # 修改设置
     img_path = input_path
-    model_path = 'demo_files/models/'+model_name
+    model_path = 'checkpoints/CIP_'+model_name+'/latest_net'
     opt.no_dropout = True
     if 'atten' in model_name:
         opt.self_attention = True
@@ -50,10 +50,10 @@ def demoTest(model_name, input_path, input_name, attention_thresh):
         # 处理出 map
         transform_map = transforms.Compose([transforms.ToTensor(),
                                             transforms.Normalize((0.5,), (0.5,))])
-        map = transform_map(getMap(img, attention_thresh))
-        map = torch.unsqueeze(map, dim=0)
+        map_ = transform_map(getMap(img, attention_thresh))
+        map_ = torch.unsqueeze(map_, dim=0)
 
-        data = {'A':img_tensor,'A_paths':img_path,'A_map':map}
+        data = {'A':img_tensor,'A_paths':img_path,'A_map':map_}
     else:
         data = {'A': img_tensor, 'A_paths': img_path}
 

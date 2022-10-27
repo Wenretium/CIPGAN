@@ -12,7 +12,7 @@
 
 国画乃我国传统文化艺术的瑰宝，蕴含着中国人的文化与智慧。随着我国文化影响力的提高，国画艺术更是备受关注。
 
-本项目为基于CycleGAN的中国画风格迁移模型。不借与笔墨纸砚，不拘于一方画布，也不需有专业的绘画功底，借计算机视觉之手，即可将照片转换为水墨画风格，创作出自己的作品。
+本项目为[基于CycleGAN](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix/tree/master/options)的中国画风格迁移模型。不借与笔墨纸砚，不拘于一方画布，也不需有专业的绘画功底，借计算机视觉之手，即可将照片转换为水墨画风格，创作出自己的作品。
 
 
 
@@ -82,13 +82,22 @@ python train.py --dataroot ./datasets/CIP_dataset1_process --name CIP_dataset1 -
 
 
 ### Test
-+ without self-attention
++ original
+
 ```
-python test.py --dataroot ./datasets/CIP_dataset1_process --name CIP_dataset1 
+python test.py --dataroot ./datasets/CIP_dataset1_process/testA --name CIP_dataset1 
 ```
-+ with self-attention (change `self_attention_thresh` here)
 ```
-python test.py --dataroot ./datasets/CIP_dataset1_process --name CIP_dataset1 --self_attention --self_attention_thresh 0.8
+python test.py --dataroot ./datasets/CIP_dataset1_process/testA --name CIP_dataset2 
+```
++ +vgg
+
+```
+python test.py --dataroot ./datasets/CIP_dataset1_process/testA --name CIP_dataset1_vgg 
+```
++ +vgg and attention (change `self_attention_thresh` here)
+```
+python test.py --dataroot ./datasets/CIP_dataset1_process/testA --name CIP_dataset1_vgg_atten --self_attention --self_attention_thresh 0.8
 ```
 If you don't want to resize the images when testing, add `--preprocess none` to the end.
 
@@ -144,6 +153,8 @@ We choose the famous unsupervised style transfer model CycleGAN as our baseline.
 
 ### Updating
 
-📌 March 27th, 2022: Update the source link of my dataset.
+📌 March 27th, 2022: Updated the source link of my dataset.
 
-📌 April 12th, 2022: Update the model & formula figures and correct some typos.
+📌 April 12nd, 2022: Updated the model & formula figures and correct some typos.
+
+📌 October 28th, 2022: Fixed the errors caused by running test.py and rearranged the project.

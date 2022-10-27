@@ -23,18 +23,16 @@ def transfer(model_name):
         output_content.set('没有选择输入图片')
     model_name = model_name
     input_name = onshow_path.split('/')[-1]
-    result_path = 'demo_files/results/{}_{}_fake.png'.format(model_name, input_name.split('.')[0])
-    print('图像已保存至', result_path)
     # if not os.path.exists(result_path):  # 没有生成过
     #     # 运行模型
     #     demoTest(model_name, onshow_path, input_name, thresh)
     #     print(onshow_path)
     # 运行模型
     demoTest(model_name, onshow_path, input_name, thresh)
-    print(onshow_path)
 
     # 展示图片
     global result_png
+    result_path = 'demo_files/results/{}_{}_fake.png'.format(model_name, input_name.split('.')[0])
     result_png = showImage(result_path)
     label_img_right['image'] = result_png
     output_content.set('生成模型 {} 的结果'.format(model_name))
@@ -56,19 +54,21 @@ def resize(w, h, w_box, h_box, pil_image):
 
 def openImage():
     global img_png
-    img_path = filedialog.askopenfilenames(initialdir='..datasets/展示')
-    if len(img_path):
-        img_path = img_path[0]
+    img_path = filedialog.askopenfilenames(initialdir='./datasets/CIP_dataset1_process/testA')
+    try:
+        img_path = img_path[0] # 如果选择多张图像，只取第一张处理
         img_open = Image.open(img_path)
-    w, h = img_open.size
-    img_open = resize(w, h, w_box, h_box, img_open)
-    img_png = ImageTk.PhotoImage(img_open)
-    label_img_left['image'] = img_png
-    global input_path
-    global onshow_path
-    input_path = img_path
-    onshow_path = img_path
-    input_content.set('已选择图像 {}'.format(img_path))
+        w, h = img_open.size
+        img_open = resize(w, h, w_box, h_box, img_open)
+        img_png = ImageTk.PhotoImage(img_open)
+        label_img_left['image'] = img_png
+        global input_path
+        global onshow_path
+        input_path = img_path
+        onshow_path = img_path
+        input_content.set('已选择图像 {}'.format(img_path))
+    except Exception:
+        print('未选择图像')
 
 def sign():
 
@@ -128,7 +128,7 @@ if __name__ == '__main__':
     btn_set2.place(y=200, x=40, width=130, height=40)
     btn_set3 = Button(window, text="+特征层约束", command=lambda:transfer(model_name='dataset1_vgg'))
     btn_set3.place(y=300, x=40, width=130, height=40)
-    btn_set4 = Button(window, text="+特征层约束和自注意力", command=lambda:transfer(model_name='dataset1_vgg_atten4'))
+    btn_set4 = Button(window, text="+特征层约束和自注意力", command=lambda:transfer(model_name='dataset1_vgg_atten'))
     btn_set4.place(y=400, x=40, width=130, height=40)
     btn_set5 = Button(window, text="署名", command=lambda:sign())
     btn_set5.place(y=500, x=40, width=100, height=40)
